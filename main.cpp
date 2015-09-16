@@ -1,8 +1,6 @@
 #include <iostream>
 
-using namespace std;
-
-string board[3][3];     //tablica będąca planszą gry
+std::string board[3][3];//tablica będąca planszą gry
 int startValue = 0;     //zmienna, która mówi o pierwszym uruchomieniu
 int user = 0;           //zmienna do sprawdzania, który user wprowadza wartość
                         //0 - kółko
@@ -19,14 +17,14 @@ void wprowadzWartosc( int a, int b) {
             board[a][b] = "O";
             user++;
         } else {
-            cout << "Pole zajęte!" << endl;
+            std::cout << "Pole zajęte!" << std::endl;
         }
     } else {
         if (board[a][b] == "") {
             board[a][b] = "X";
             user--;
         } else {
-            cout << "Pole zajęte!" << endl;
+            std::cout << "Pole zajęte!" << std::endl;
         }
     }
 }
@@ -50,14 +48,14 @@ void sprawdz() {
             if (board[i][j] == "X") {
                 xcount++;
                 if (xcount >=3) {
-                    cout << "X wygrał!" << endl;
+                    std::cout << "X wygrał!" << std::endl;
                     finish = true;
                 }
             }
             if (board[i][j] == "O") {
                 ycount++;
                 if (ycount >=3) {
-                    cout << "O wygrał!" << endl;
+                    std::cout << "O wygrał!" << std::endl;
                     finish = true;
                 }
             }
@@ -71,7 +69,7 @@ void sprawdz() {
             if (board[j][i] == "X") {
                 xcount++;
                 if (xcount >=3) {
-                    cout << "X wygrał!" << endl;
+                    std::cout << "X wygrał!" << std::endl;
                     finish = true;
                     
                 }
@@ -79,7 +77,7 @@ void sprawdz() {
             if (board[j][i] == "O") {
                 ycount++;
                 if (ycount >=3) {
-                    cout << "O wygrał!" << endl;
+                    std::cout << "O wygrał!" << std::endl;
                     finish = true;
                     
                 }
@@ -93,14 +91,14 @@ void sprawdz() {
         if (board[i][i] == "X") {
             xcount++;
             if (xcount == 3) {
-                cout << "X wygrał!" << endl;
+                std::cout << "X wygrał!" << std::endl;
                 finish = true;
             }
         }
         if (board[i][i] == "O") {
             ycount++;
             if (ycount == 3) {
-                cout << "O wygrał!" << endl;
+                std::cout << "O wygrał!" << std::endl;
                 finish = true;
             }
         }
@@ -112,14 +110,14 @@ void sprawdz() {
             if (board[i][2-i] == "X") {
                 xcount++;
                 if (xcount == 3) {
-                    cout << "X wygrał!" << endl;
+                    std::cout << "X wygrał!" << std::endl;
                     finish = true;
                 }
             }
             if (board[i][2-i] == "O") {
                 ycount++;
                 if (ycount == 3) {
-                    cout << "O wygrał!" << endl;
+                    std::cout << "O wygrał!" << std::endl;
                     finish = true;
                 }
             }
@@ -128,7 +126,7 @@ void sprawdz() {
     
     
     if (fullcount >=9 && finish == false) {                                        //sprawdzanie wyjątku, kiedy nikt nie wygrywa
-        cout << "Nikt nie wygrał!" << endl;
+        std::cout << "Nikt nie wygrał!" << std::endl;
         finish = true;
     }
     
@@ -137,10 +135,10 @@ void sprawdz() {
 void wyswietlPlansze() {
     for (int i = 0; i<=2; i++) {
         for (int j = 0; j<=2; j++) {
-            cout.width(3);
-            cout << board[i][j];
+            std::cout.width(3);
+            std::cout << board[i][j];
         }
-        cout << endl;
+        std::cout << std::endl;
     }
     
     sprawdz();
@@ -196,23 +194,23 @@ void mapujKlawisze() {
             break;
             
         default:
-            cout << "Podano złą wartość. Podaj liczbę w zakresie 1-9." << endl;
+            std::cout << "Podano złą wartość. Podaj liczbę w zakresie 1-9." << std::endl;
             break;
     }
 }
 
 void start() {
-    cout << "---------------------------------------------------" << endl;
-    cout << "--                  KÓŁKO KRZYŻYK                --" << endl;
-    cout << "--               by Karol Karczewski             --" << endl;
-    cout << "---------------------------------------------------" << endl << endl;
-    cout << "Wprowadzane lokalizacje obrazuje poniższy schemat: " << endl;
-    cout << "                      1  2  3                      " << endl;
-    cout << "                      4  5  6                      " << endl;
-    cout << "                      7  8  9                      " << endl << endl;
-    cout << "Jeśli chcesz więc wstawić znak w konkretne miejsce," << endl;
-    cout << "po prostu podaj cyfrę odpowiadającą miejscu.       " << endl << endl;
-    cout << "                    POWODZENIA!                    " << endl;
+    std::cout << "---------------------------------------------------" << std::endl;
+    std::cout << "--                  KÓŁKO KRZYŻYK                --" << std::endl;
+    std::cout << "--               by Karol Karczewski             --" << std::endl;
+    std::cout << "---------------------------------------------------" << std::endl << std::endl;
+    std::cout << "Wprowadzane lokalizacje obrazuje poniższy schemat: " << std::endl;
+    std::cout << "                      1  2  3                      " << std::endl;
+    std::cout << "                      4  5  6                      " << std::endl;
+    std::cout << "                      7  8  9                      " << std::endl << std::endl;
+    std::cout << "Jeśli chcesz więc wstawić znak w konkretne miejsce," << std::endl;
+    std::cout << "po prostu podaj cyfrę odpowiadającą miejscu.       " << std::endl << std::endl;
+    std::cout << "                    POWODZENIA!                    " << std::endl;
 }
 
 int main() {
@@ -220,24 +218,23 @@ int main() {
         start();
         startValue++;
     }
-    //mapowanie = 0;
     while (finish == false) {
-        if (user == 0) cout << "Wprowadź lokalizację O: "; else if (user == 1) cout << "Wprowadź lokalizację X: ";
-        if (cin >> value) {
+        if (user == 0) std::cout << "Wprowadź lokalizację O: "; else if (user == 1) std::cout << "Wprowadź lokalizację X: ";
+        if (std::cin >> value) {
             mapujKlawisze();
         } else {
-            cout << "Podano złą wartość. Podaj liczbę w zakresie 1-9."<<endl;
-            cin.clear();
+            std::cout << "Podano złą wartość. Podaj liczbę w zakresie 1-9." << std::endl;
+            std::cin.clear();
             
-            string str;
-            cin >> str;
+            std::string str;
+            std::cin >> str;
         }
     }
     
     
-    cout << "Czy chcesz zagrać ponownie? Wprowadź 't' żeby zatwierdzić lub każdy inny znak, aby wyjść. ";
-    string response;
-    cin >> response;
+    std::cout << "Czy chcesz zagrać ponownie? Wprowadź 't' żeby zatwierdzić lub każdy inny znak, aby wyjść. ";
+    std::string response;
+    std::cin >> response;
     
     if (response == "t") {
         finish = false;
