@@ -5,7 +5,8 @@ int startValue = 0;     //zmienna, która mówi o pierwszym uruchomieniu
 int user = 0;           //zmienna do sprawdzania, który user wprowadza wartość
                         //0 - kółko
                         //1 - krzyżyk
-int value;              //wartość wprowadzona przez usera od 1 do 9
+int value1;            //wartość wprowadzona przez usera od 1 do 3
+int value2;            //wartość wprowadzona przez usera od 1 do 3
                         //  1  2  3
                         //  4  5  6
                         //  7  8  9
@@ -146,56 +147,44 @@ void wyswietlPlansze() {
 
 
 void mapujKlawisze() {
-    switch (value)
+    if (value1 == 1 && value2 == 1) {
+        wprowadzWartosc(0,0);
+        wyswietlPlansze();
+    } else
+    if (value1 == 1 && value2 == 2) {
+        wprowadzWartosc(0,1);
+        wyswietlPlansze();
+    } else
+    if (value1 == 1 && value2 == 3) {
+        wprowadzWartosc(0,2);
+        wyswietlPlansze();
+    } else
+    if (value1 == 2 && value2 == 1) {
+        wprowadzWartosc(1,0);
+        wyswietlPlansze();
+    } else
+    if (value1 == 2 && value2 == 2) {
+        wprowadzWartosc(1,1);
+        wyswietlPlansze();
+    } else
+    if (value1 == 2 && value2 == 3) {
+        wprowadzWartosc(1,2);
+        wyswietlPlansze();
+    } else
+    if (value1 == 3 && value2 == 1) {
+        wprowadzWartosc(2,0);
+        wyswietlPlansze();
+    } else
+    if (value1 == 3 && value2 == 2) {
+        wprowadzWartosc(2,1);
+        wyswietlPlansze();
+    } else
+    if (value1 == 3 && value2 == 3) {
+        wprowadzWartosc(2,2);
+        wyswietlPlansze();
+    } else
     {
-        case 11:
-            wprowadzWartosc(0,0);
-            wyswietlPlansze();
-            break;
-            
-        case 12:
-            wprowadzWartosc(0,1);
-            wyswietlPlansze();
-            break;
-            
-        case 13:
-            wprowadzWartosc(0,2);
-            wyswietlPlansze();
-            break;
-            
-        case 21:
-            wprowadzWartosc(1,0);
-            wyswietlPlansze();
-            break;
-            
-        case 22:
-            wprowadzWartosc(1,1);
-            wyswietlPlansze();
-            break;
-            
-        case 23:
-            wprowadzWartosc(1,2);
-            wyswietlPlansze();
-            break;
-            
-        case 31:
-            wprowadzWartosc(2,0);
-            wyswietlPlansze();
-            break;
-            
-        case 32:
-            wprowadzWartosc(2,1);
-            wyswietlPlansze();
-            break;
-            
-        case 33:
-            wprowadzWartosc(2,2);
-            wyswietlPlansze();
-            break;
-            
-        default:
-            std::cout << "Podano złą wartość. Podaj odpowiednią liczbę." << std::endl;
-            break;
+        std::cout << "Podano złą wartość. Podaj odpowiednią liczbę." << std::endl;
     }
 }
 
@@ -205,11 +194,12 @@ void start() {
     std::cout << "--               by Karol Karczewski             --" << std::endl;
     std::cout << "---------------------------------------------------" << std::endl << std::endl;
     std::cout << "Wprowadzane lokalizacje obrazuje poniższy schemat: " << std::endl;
-    std::cout << "                     11  12  13                    " << std::endl;
-    std::cout << "                     21  22  23                    " << std::endl;
-    std::cout << "                     31  32  33                    " << std::endl << std::endl;
+    std::cout << "                     1   2   3                     " << std::endl;
+    std::cout << "                 1   .   .   .                     " << std::endl;
+    std::cout << "                 2   .   .   .                     " << std::endl;
+    std::cout << "                 3   .   .   .                     " << std::endl << std::endl;
     std::cout << "Jeśli chcesz więc wstawić znak w konkretne miejsce," << std::endl;
-    std::cout << "po prostu podaj liczbę odpowiadającą miejscu.      " << std::endl << std::endl;
+    std::cout << "podaj najpierw numer wiersza, a następnie kolumny. " << std::endl << std::endl;
     std::cout << "                    POWODZENIA!                    " << std::endl;
 }
 
@@ -219,8 +209,8 @@ int main() {
         startValue++;
     }
     while (finish == false) {
-        if (user == 0) std::cout << "Wprowadź lokalizację O: "; else if (user == 1) std::cout << "Wprowadź lokalizację X: ";
-        if (std::cin >> value) {
+        if (user == 0) std::cout << "Wprowadź lokalizację O: " << std::endl; else if (user == 1) std::cout << "Wprowadź lokalizację X: " << std::endl;
+        if (std::cin >> value1 >> value2) {
             mapujKlawisze();
         } else {
             std::cout << "Podano złą wartość. Podaj odpowiednią liczbę." << std::endl;
