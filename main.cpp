@@ -148,53 +148,53 @@ void wyswietlPlansze() {
 void mapujKlawisze() {
     switch (value)
     {
-        case 1:
+        case 11:
             wprowadzWartosc(0,0);
             wyswietlPlansze();
             break;
             
-        case 2:
+        case 12:
             wprowadzWartosc(0,1);
             wyswietlPlansze();
             break;
             
-        case 3:
+        case 13:
             wprowadzWartosc(0,2);
             wyswietlPlansze();
             break;
             
-        case 4:
+        case 21:
             wprowadzWartosc(1,0);
             wyswietlPlansze();
             break;
             
-        case 5:
+        case 22:
             wprowadzWartosc(1,1);
             wyswietlPlansze();
             break;
             
-        case 6:
+        case 23:
             wprowadzWartosc(1,2);
             wyswietlPlansze();
             break;
             
-        case 7:
+        case 31:
             wprowadzWartosc(2,0);
             wyswietlPlansze();
             break;
             
-        case 8:
+        case 32:
             wprowadzWartosc(2,1);
             wyswietlPlansze();
             break;
             
-        case 9:
+        case 33:
             wprowadzWartosc(2,2);
             wyswietlPlansze();
             break;
             
         default:
-            std::cout << "Podano złą wartość. Podaj liczbę w zakresie 1-9." << std::endl;
+            std::cout << "Podano złą wartość. Podaj odpowiednią liczbę." << std::endl;
             break;
     }
 }
@@ -205,11 +205,11 @@ void start() {
     std::cout << "--               by Karol Karczewski             --" << std::endl;
     std::cout << "---------------------------------------------------" << std::endl << std::endl;
     std::cout << "Wprowadzane lokalizacje obrazuje poniższy schemat: " << std::endl;
-    std::cout << "                      1  2  3                      " << std::endl;
-    std::cout << "                      4  5  6                      " << std::endl;
-    std::cout << "                      7  8  9                      " << std::endl << std::endl;
+    std::cout << "                     11  12  13                    " << std::endl;
+    std::cout << "                     21  22  23                    " << std::endl;
+    std::cout << "                     31  32  33                    " << std::endl << std::endl;
     std::cout << "Jeśli chcesz więc wstawić znak w konkretne miejsce," << std::endl;
-    std::cout << "po prostu podaj cyfrę odpowiadającą miejscu.       " << std::endl << std::endl;
+    std::cout << "po prostu podaj liczbę odpowiadającą miejscu.      " << std::endl << std::endl;
     std::cout << "                    POWODZENIA!                    " << std::endl;
 }
 
@@ -223,7 +223,7 @@ int main() {
         if (std::cin >> value) {
             mapujKlawisze();
         } else {
-            std::cout << "Podano złą wartość. Podaj liczbę w zakresie 1-9." << std::endl;
+            std::cout << "Podano złą wartość. Podaj odpowiednią liczbę." << std::endl;
             std::cin.clear();
             
             std::string str;
